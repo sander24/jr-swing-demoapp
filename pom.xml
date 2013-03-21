@@ -42,12 +42,12 @@
             <argument>-classpath</argument>
             <classpath />
             <argument>-noverify</argument>
-            <!-- 
-            <argument>-Drebel.myjrebel.host=my.fakesite.com</argument>
-            <argument>-Drebel.notification.url=http://127.0.0.1:44573/jrebel/notifications</argument>
-            <argument>-Drebel.license.url=http://localhost:9001/8b8c6322-8d48-4a65-ade2-a721f144c61a</argument>           
-            -->
+            
+            
+            <!-- Enable JRebel license server 2 licensing -->
+            <!--            
             <argument>-Drebel.license.url=http://localhost:9001/ce702ff8-50e2-45a6-9c7c-941f47dc9ed6</argument>
+            -->
 
             
             
