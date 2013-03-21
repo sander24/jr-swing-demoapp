@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.zeroturnaround.demoapp</groupId>
+  <artifactId>jrebel-swing-demoapp</artifactId>
+  <version>1.0</version>
+
+  <packaging>jar</packaging>
+
+  <name>Swing demoapp for JRebel testing</name>
+  
+  <dependencies />
+
+  <build>
+    <plugins>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <phase>compile</phase>
+          <source>1.5</source>
+          <target>1.5</target>
+          <optimise>true</optimise>
+          <debug>true</debug>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>1.2</version>
+
+
+        <configuration>
+          <executable>java</executable>
+          <arguments>
+            <argument>-classpath</argument>
+            <classpath />
+            <argument>-noverify</argument>
+            <!-- 
+            <argument>-Drebel.myjrebel.host=my.fakesite.com</argument>
+            <argument>-Drebel.notification.url=http://127.0.0.1:44573/jrebel/notifications</argument>
+            <argument>-Drebel.license.url=http://localhost:9001/8b8c6322-8d48-4a65-ade2-a721f144c61a</argument>           
+            -->
+            <argument>-Drebel.license.url=http://localhost:9001/ce702ff8-50e2-45a6-9c7c-941f47dc9ed6</argument>
+
+            
+            
+            <argument>-javaagent:/opt/jrebel/jrebel.jar</argument>
+            <argument>-Drebel.log=true</argument>
+            <!-- 
+            <argument>-Drebel.log.trace=true</argument>
+            <argyument>-Drebel.licensing.async=true</argyument>
+            -->
+            
+            <argument>-Xdebug</argument>
+            <argument>-Xrunjdwp:transport=dt_socket,address=63040,suspend=n,server=y</argument>
+            <argument>org.zeroturnaround.demoapps.swing.Main</argument>
+          </arguments>
+        </configuration>
+
+        <executions>
+          <execution>
+            <phase>install</phase>
+            <goals>
+              <goal>exec</goal>
+            </goals>
+          </execution>
+        </executions>
+
+      </plugin>
+
+      <plugin>
+        <groupId>org.zeroturnaround</groupId>
+        <artifactId>jrebel-maven-plugin</artifactId>
+        <version>1.0.7</version>
+        <executions>
+          <execution>
+            <id>generate-rebel-xml</id>
+            <phase>process-resources</phase>
+            <goals>
+              <goal>generate</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+    </plugins>
+
+  </build>
+</project>
