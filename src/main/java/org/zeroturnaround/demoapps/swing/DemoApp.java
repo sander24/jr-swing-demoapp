@@ -6,13 +6,20 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
+import org.apache.log4j.Logger;
+
 public class DemoApp extends JFrame {
 
   private static final long serialVersionUID = 1L;
 
+  private static Logger log = Logger.getLogger(DemoApp.class);
+  
   public DemoApp() {
 
     super("JRebel SDK Demo-app");
+
+    log.debug("hey-ho.. message from log4j!");
+    
     setBounds(100, 200, 400, 300);
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -25,7 +32,8 @@ public class DemoApp extends JFrame {
     button.addActionListener(new ActionListener() {
 
       public void actionPerformed(ActionEvent e) {
-        System.out.println("aasfsussfera");
+        //System.out.println("aaa");
+        log.debug("sssgsagg");
       }
       
     });
