@@ -67,7 +67,10 @@
             <argument>-Xloggc:my-gc-logfile.log</argument>
             -->
             
+            <!-- logging -->
+            <!--  
             <argument>-Drebel.log=true</argument>
+            -->
             <argument>-javaagent:/opt/jrebel/jrebel.jar</argument>
 
             <!-- 
@@ -76,8 +79,12 @@
             <argyument>-Drebel.licensing.async=true</argyument>
             -->
             
+            <!-- debugguer -->
+            <!-- 
             <argument>-Xdebug</argument>
             <argument>-Xrunjdwp:transport=dt_socket,address=63040,suspend=n,server=y</argument>
+            -->
+            
             <argument>org.zeroturnaround.demoapps.swing.Main</argument>
           </arguments>
         </configuration>
