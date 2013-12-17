@@ -1,5 +1,5 @@
-/run.sh
 /target
 /.project
 /.classpath
 /.settings
+/my-gc-logfile.log

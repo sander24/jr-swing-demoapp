@@ -59,7 +59,13 @@
             <argument>-Drebel.license.url=http://localhost:8080/f351c345-4857-420a-8dc9-8780bb8e0f55</argument>
             -->
 
-            
+            <!-- test garbage collection -->
+            <!-- 
+            <argument>-verbose:gc</argument>
+            <argument>-XX:+PrintGCTimeStamps</argument>
+            <argument>-XX:+PrintGCDetails</argument>
+            <argument>-Xloggc:my-gc-logfile.log</argument>
+            -->
             
             <argument>-Drebel.log=true</argument>
             <argument>-javaagent:/opt/jrebel/jrebel.jar</argument>
