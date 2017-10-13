@@ -4,7 +4,8 @@ public class Main {
   
   // Display the application window, start the loop for pinging GCanvas
   public static void main(String arg[]) {
-      DemoApp demoApp = new DemoApp();
+      System.out.println("running class Main");
+      DemoApp demoApp = new DemoApp(); 
       demoApp.setVisible(true);
   }
   

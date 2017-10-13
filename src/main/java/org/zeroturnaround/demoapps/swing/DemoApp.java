@@ -1,25 +1,23 @@
 package org.zeroturnaround.demoapps.swing;
 
-import java.awt.*;
+import javax.swing.JFrame;
+import javax.swing.JButton;
+import javax.swing.SpringLayout;
+import java.awt.Container;
+import java.awt.LayoutManager;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import javax.swing.*;
-
-import org.apache.log4j.Logger;
 
 public class DemoApp extends JFrame {
 
   private static final long serialVersionUID = 1L;
 
-  private static Logger log = Logger.getLogger(DemoApp.class);
-  
+  private static StringService stringService = StringService.getInstance();
+
   public DemoApp() {
 
     super("JRebel SDK Demo-app");
-
-    log.debug("hey-ho.. message from log4j!");
-    
     setBounds(100, 200, 400, 300);
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -28,12 +26,11 @@ public class DemoApp extends JFrame {
     LayoutManager mg = new SpringLayout();
     con.setLayout(mg);
     
-    JButton button = new JButton("[[TEST]]");
+    JButton button = new JButton("Print");
     button.addActionListener(new ActionListener() {
 
       public void actionPerformed(ActionEvent e) {
-        //System.out.println("aaa");
-        log.debug("sssgsagg");
+        System.out.println(stringService.duplicateString("koer"));
       }
       
     });

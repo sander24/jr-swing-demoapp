@@ -11,32 +11,19 @@
 
   <packaging>jar</packaging>
 
-  <name>Swing demoapp for JRebel testing</name>
-  
-  <properties>
-    <my.mainclass>org.zeroturnaround.demoapps.swing.Main</my.mainclass>
-  </properties>
+  <name>Swing demoapp</name>
 
-  <dependencies>
-    <dependency>
-      <groupId>log4j</groupId>
-      <artifactId>log4j</artifactId>
-      <version>1.2.17</version>
-    </dependency>
-  </dependencies>
+  <dependencies />
 
   <build>
     <plugins>
+
       <plugin>
-      
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.1</version>
         <configuration>
-          <phase>compile</phase>
-          <source>1.5</source>
-          <target>1.5</target>
-          <optimise>true</optimise>
+          <source>1.8</source>
+          <target>1.8</target>
           <debug>true</debug>
         </configuration>
       </plugin>
@@ -53,40 +40,10 @@
             <argument>-classpath</argument>
             <classpath />
             <argument>-noverify</argument>
-            <!-- 
-            <argument>-Drebel.myjrebel.host=my.fakesite.com</argument>
-            <argument>-Drebel.notification.url=http://127.0.0.1:44573/jrebel/notifications</argument>
-            <argument>-Drebel.license.url=http://localhost:9001/8b8c6322-8d48-4a65-ade2-a721f144c61a</argument>           
-            <argument>-Drebel.license.url=http://localhost:8080/f351c345-4857-420a-8dc9-8780bb8e0f55</argument>
-            -->
-
-            <!-- test garbage collection -->
-            <!-- 
-            <argument>-verbose:gc</argument>
-            <argument>-XX:+PrintGCTimeStamps</argument>
-            <argument>-XX:+PrintGCDetails</argument>
-            <argument>-Xloggc:my-gc-logfile.log</argument>
-            -->
-            
-            <!-- logging -->
-            <!--  
-            -->
-
-            <argument>-Drebel.log=true</argument>
             <argument>-javaagent:/opt/jrebel/jrebel.jar</argument>
-
-            <!-- 
-            <argument>-Drebel.myjrebel.host=my.fakesite.com</argument>
-            <argument>-Drebel.log.trace=true</argument>
-            <argyument>-Drebel.licensing.async=true</argyument>
-            -->
-            
-            <!-- debugguer -->
-            <!-- 
+            <argument>-Drebel.log=true</argument>
             <argument>-Xdebug</argument>
             <argument>-Xrunjdwp:transport=dt_socket,address=63040,suspend=n,server=y</argument>
-            -->
-            
             <argument>org.zeroturnaround.demoapps.swing.Main</argument>
           </arguments>
         </configuration>
@@ -102,8 +59,6 @@
 
       </plugin>
 
-<!-- 
-      -->
       <plugin>
         <groupId>org.zeroturnaround</groupId>
         <artifactId>jrebel-maven-plugin</artifactId>
@@ -118,78 +73,8 @@
           </execution>
         </executions>
       </plugin>
-      
-      <plugin>
-        <artifactId>maven-assembly-plugin</artifactId>
-        <executions>
-          <execution>
-            <phase>package</phase>
-            <goals>
-              <goal>single</goal>
-            </goals>
-          </execution>
-        </executions>
-        <configuration>
-          <descriptorRefs>
-            <descriptorRef>jar-with-dependencies</descriptorRef>
-          </descriptorRefs>
-          
-          <archive>
-            <manifest>
-              <mainClass>${my.mainclass}</mainClass>
-            </manifest>
-          </archive>
-        </configuration>
-      </plugin>
-      
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-jar-plugin</artifactId>
-        <version>2.4</version>
-        <configuration>
-          <archive>
-            <manifest>
-              <mainClass>${my.mainclass}</mainClass>
-            </manifest>
-          </archive>
-        </configuration>
-      </plugin>
 
     </plugins>
 
-    <pluginManagement>
-      <plugins>
-        <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
-        <plugin>
-          <groupId>org.eclipse.m2e</groupId>
-          <artifactId>lifecycle-mapping</artifactId>
-          <version>1.0.0</version>
-          <configuration>
-            <lifecycleMappingMetadata>
-              <pluginExecutions>
-                <pluginExecution>
-                  <pluginExecutionFilter>
-                    <groupId>org.zeroturnaround</groupId>
-                    <artifactId>jrebel-maven-plugin</artifactId>
-                    <versionRange>[1.0.7,)</versionRange>
-                    <goals>
-                      <goal>generate</goal>
-                    </goals>
-                  </pluginExecutionFilter>
-                  <action>
-                    <ignore></ignore>
-                  </action>
-                </pluginExecution>
-              </pluginExecutions>
-            </lifecycleMappingMetadata>
-          </configuration>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-resources-plugin</artifactId>
-          <version>2.6</version>
-        </plugin>
-      </plugins>
-    </pluginManagement>
   </build>
 </project>
